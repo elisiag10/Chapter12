@@ -1,0 +1,166 @@
+==============================StaffDinnerEvent=============================
+
+package com.company;
+import java.io.Console;
+import java.util.*;
+
+public class Main {
+    static int waitStaff;
+
+    public static void main(String[] args) {
+
+            promptGuestNumber();
+
+    }
+
+    public static void promptGuestNumber (){
+
+        while(true){
+            int num = 0;
+            int x= 0;
+            Scanner myObj = new Scanner(System.in);
+            System.out.println("\n" + "Enter number of guests ");
+            num = Integer.parseInt(myObj.nextLine());
+            try{
+                if(num < 50){
+                    promptEventNum();
+                    break;
+                }
+                else if(num >  50){
+                    System.out.println("try again");
+                }
+            }
+            catch (Exception e) {
+                System.err.println("Not a valid input. Error :" + e.getMessage());
+                continue;
+            }
+
+        }
+    }
+
+    public static void promptEventNum (){
+
+        while(true){
+            try {
+                System.out.println("Enter event number: ");
+                Scanner myObj = new Scanner(System.in);;
+                String eveNum = myObj.nextLine();
+                if (eveNum.length() < 5) {
+                    promptEventType();
+                    break;
+                } else {
+                    System.out.println("try again");
+                }
+
+
+            }catch (Exception e){
+                System.err.println("Not a valid String. Error :" + e.getMessage());
+                continue;
+            }
+        }
+    }
+
+    public static void promptEventType (){
+
+        while(true){
+            try {
+                System.out.println("Enter event type: ");
+                Scanner myObj = new Scanner(System.in);;
+                int eventType = Integer.parseInt(myObj.nextLine());
+                if (eventType < 5) {
+                    promptPhoneNumber();
+                    break;
+                } else {
+                    System.out.println("Enter Numbers 1-4 to select type");
+                }
+
+
+            }catch (Exception e){
+                System.err.println("Not a valid number. Error :" + e.getMessage());
+                continue;
+            }
+        }
+    }
+
+    public static void promptPhoneNumber() {
+
+        while (true) {
+            try {
+                System.out.println("Enter phone number: ");
+                Scanner myObj = new Scanner(System.in);;
+                String phoneNumber = myObj.nextLine();
+                if (phoneNumber.length() == 10) {
+                   promptMenu();
+                    break;
+                } else{
+                    System.out.println("Try again");
+                }
+
+
+            }catch (Exception e){
+                System.err.println("Not a valid String. Error :" + e.getMessage());
+                continue;
+            }
+
+        }
+    }
+
+    public static void promptMenu() {
+        final String[] entreeOption = { "Steak", "Chicken", "Fish", "none" };
+        final String[] sideOption1 = { "Mac & Cheese", "Veggies", "Mash Potatoes", "none" };
+        final String[] sideOption2 = { "Fries", "Salad", "Fruit", "none" };
+        final String[] dessertOption = { "Pie", "Cake", "Ice Cream", "none" };
+
+        String menu = "<!--- Entrees ---!>\n";
+        for (int i = 0; i < entreeOption.length; i++) {
+            menu += ((i + 1) + ") " + entreeOption[i] + "\n");
+        }
+        menu += "\n<!--- Side Dish 1 ---!>\n";
+        for (int i = 0; i < sideOption1.length; i++) {
+            menu += ((i + 1) + ") " + sideOption1[i] + "\n");
+        }
+        menu += "\n<!--- Side Dish 2 ---!>\n";
+        for (int i = 0; i < sideOption2.length; i++) {
+            menu += ((i + 1) + ") " + sideOption2[i] + "\n");
+        }
+
+        menu += "\n<!--- Desserts ---!>\n";
+        for (int i = 0; i < dessertOption.length; i++) {
+            menu += ((i + 1) + ") " + dessertOption[i] + "\n");
+        }
+        System.out.println("Menu " + menu);
+
+        while (true) {
+            try {
+                System.out.println("\n" + "Choose an entree 1-3: ");
+                Scanner myObj = new Scanner(System.in);;
+
+                int entreeChoice = Integer.parseInt(myObj.nextLine());
+                if (entreeChoice == 1) {
+                    System.out.println(entreeOption[entreeChoice - 1]);
+                    break;
+                } else if(entreeChoice == 2){
+                    System.out.println(entreeOption[entreeChoice -1 ]);
+                    break;
+                } else if(entreeChoice == 3){
+                    System.out.println(entreeOption[entreeChoice -1 ]);
+                    break;
+                }else if(entreeChoice == 4){
+                    System.out.println(entreeOption[entreeChoice -1]);
+                    break;
+                }else{
+                    System.out.println(entreeOption[entreeChoice -1]);
+                    break;
+                }
+
+
+            }catch (Exception e){
+                System.err.println("Not a valid String. Error :" + e.getMessage());
+                continue;
+            }
+
+        }
+
+    }
+
+}
